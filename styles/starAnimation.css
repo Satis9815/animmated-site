@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #132130;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.star{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    color: #fff;
+    top: -20px;
+    animation:animateStar 5s linear forwards;
+}
+.star::before{
+    content: "\f005";
+    font-family: fontAwesome;
+    text-shadow: 0px 0px 5px #fff,
+                0px 0px 20px #fff,
+                0px 0px 50px #fff;
+}
+@keyframes animateStar {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    80%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+    
+}
+
+.cursor{
+    height: 20px;
+    width: 20px;
+    background: #ff602e;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ff602e,
+                0 0 60px #ff602e,
+                0 0 100px #ff602e;
+    pointer-events: none;
+    z-index: 10;
+    position: fixed;
+    transform: translate(-50%,-50%);
+    display: none;
+    animation: changeColor 5s infinite;
+
+}
+@keyframes changeColor {
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+    
+}
+.cursor::before{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    content: "";
+    background: #ff602e;
+    border-radius: 50%;
+    opacity: 0.2;
+    transform: translate(-25%,-25%);
+
+}
